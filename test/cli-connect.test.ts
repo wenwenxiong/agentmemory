@@ -29,20 +29,24 @@ describe("agentmemory connect — dispatcher", () => {
     expect(resolveAdapter("")).toBeNull();
   });
 
-  it("ships exactly the 8 agents specified by the spec", () => {
+  it("ships the supported agent list", () => {
+    // Bumped to 11 with Qwen Code (#647), Antigravity (#614), Kiro (#618).
     expect(knownAgents().sort()).toEqual(
       [
+        "antigravity",
         "claude-code",
         "codex",
         "cursor",
         "gemini-cli",
         "hermes",
+        "kiro",
         "openclaw",
         "openhuman",
         "pi",
+        "qwen",
       ].sort(),
     );
-    expect(ADAPTERS.length).toBe(8);
+    expect(ADAPTERS.length).toBe(11);
   });
 
   it("every adapter exposes detect() and install()", () => {
