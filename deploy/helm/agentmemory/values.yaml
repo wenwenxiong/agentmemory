@@ -29,7 +29,9 @@ config:
   graphWeight: "0.2"
   tools: "all"
   openaiBaseUrl: ""
+  openaiModel: ""
   openaiEmbeddingModel: ""
+  openaiEmbeddingDimensions: ""
   additionalEnv: {}
 
 persistence:

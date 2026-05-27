@@ -20,6 +20,12 @@ data:
   {{- if .Values.config.openaiBaseUrl }}
   OPENAI_BASE_URL: {{ .Values.config.openaiBaseUrl | quote }}
   {{- end }}
+  {{- if .Values.config.openaiModel }}
+  OPENAI_MODEL: {{ .Values.config.openaiModel | quote }}
+  {{- end }}
   {{- if .Values.config.openaiEmbeddingModel }}
   OPENAI_EMBEDDING_MODEL: {{ .Values.config.openaiEmbeddingModel | quote }}
+  {{- end }}
+  {{- if .Values.config.openaiEmbeddingDimensions }}
+  OPENAI_EMBEDDING_DIMENSIONS: {{ .Values.config.openaiEmbeddingDimensions | quote }}
   {{- end }}
