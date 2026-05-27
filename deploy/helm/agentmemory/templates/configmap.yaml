@@ -17,3 +17,9 @@ data:
   VECTOR_WEIGHT: {{ .Values.config.vectorWeight | quote }}
   AGENTMEMORY_GRAPH_WEIGHT: {{ .Values.config.graphWeight | quote }}
   AGENTMEMORY_TOOLS: {{ .Values.config.tools | quote }}
+  {{- if .Values.config.openaiBaseUrl }}
+  OPENAI_BASE_URL: {{ .Values.config.openaiBaseUrl | quote }}
+  {{- end }}
+  {{- if .Values.config.openaiEmbeddingModel }}
+  OPENAI_EMBEDDING_MODEL: {{ .Values.config.openaiEmbeddingModel | quote }}
+  {{- end }}

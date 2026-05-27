@@ -28,6 +28,8 @@ config:
   vectorWeight: "0.6"
   graphWeight: "0.2"
   tools: "all"
+  openaiBaseUrl: ""
+  openaiEmbeddingModel: ""
   additionalEnv: {}
 
 persistence:
@@ -59,8 +61,6 @@ serviceAccount:
 podAnnotations: {}
 
 podSecurityContext:
-  runAsUser: 65532
-  runAsGroup: 65532
   fsGroup: 65532
 
 securityContext:
