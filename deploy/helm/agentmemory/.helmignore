@@ -1,0 +1,5 @@
+patterns:
+  - "*.tgz"
+  - "Chart.lock"
+  - "values-dev.yaml"
+  - "values-prod.yaml"

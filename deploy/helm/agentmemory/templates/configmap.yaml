@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "agentmemory.fullname" . }}-config
+  labels:
+    {{- include "agentmemory.labels" . | nindent 4 }}
+data:
+  EMBEDDING_PROVIDER: {{ .Values.config.embeddingProvider | quote }}
+  AGENTMEMORY_AUTO_COMPRESS: {{ .Values.config.autoCompress | quote }}
+  AGENTMEMORY_INJECT_CONTEXT: {{ .Values.config.injectContext | quote }}
+  CONSOLIDATION_ENABLED: {{ .Values.config.consolidationEnabled | quote }}
+  GRAPH_EXTRACTION_ENABLED: {{ .Values.config.graphExtractionEnabled | quote }}
+  AGENTMEMORY_REFLECT: {{ .Values.config.agentmemoryReflect | quote }}
+  TOKEN_BUDGET: {{ .Values.config.tokenBudget | quote }}
+  MAX_OBS_PER_SESSION: {{ .Values.config.maxObsPerSession | quote }}
+  BM25_WEIGHT: {{ .Values.config.bm25Weight | quote }}
+  VECTOR_WEIGHT: {{ .Values.config.vectorWeight | quote }}
+  AGENTMEMORY_GRAPH_WEIGHT: {{ .Values.config.graphWeight | quote }}
+  AGENTMEMORY_TOOLS: {{ .Values.config.tools | quote }}

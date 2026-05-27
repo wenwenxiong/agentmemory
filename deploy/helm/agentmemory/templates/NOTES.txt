@@ -1,0 +1,36 @@
+agentmemory has been deployed!
+
+Release:   {{ .Release.Name }}
+Namespace: {{ .Release.Namespace }}
+Image:     {{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}
+
+Service URL (in-cluster):
+  {{ include "agentmemory.serviceUrl" . }}
+
+Health check:
+  kubectl exec deploy/{{ include "agentmemory.fullname" . }} -- curl -s http://localhost:3111/agentmemory/livez
+
+View logs:
+  kubectl logs -l app.kubernetes.io/instance={{ .Release.Name }} -c agentmemory --tail=30
+
+HMAC secret (first boot only — check logs):
+  kubectl logs deploy/{{ include "agentmemory.fullname" . }} | grep "AGENTMEMORY_SECRET="
+
+OpenClaw plugin config (add to openclaw.json):
+  {
+    "plugins": {
+      "slots": { "memory": "agentmemory" },
+      "entries": {
+        "agentmemory": {
+          "enabled": true,
+          "config": {
+            "base_url": "{{ include "agentmemory.serviceUrl" . }}",
+            "token_budget": {{ .Values.openclaw.plugin.tokenBudget }},
+            "min_confidence": {{ .Values.openclaw.plugin.minConfidence }},
+            "fallback_on_error": {{ .Values.openclaw.plugin.fallbackOnError }},
+            "timeout_ms": {{ .Values.openclaw.plugin.timeoutMs }}
+          }
+        }
+      }
+    }
+  }

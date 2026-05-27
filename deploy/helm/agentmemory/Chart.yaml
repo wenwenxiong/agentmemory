@@ -1,0 +1,17 @@
+apiVersion: v2
+name: agentmemory
+description: Persistent memory for AI coding agents, powered by iii-engine
+type: application
+version: 0.1.0
+appVersion: "0.9.22"
+keywords:
+  - ai
+  - agent
+  - memory
+  - mcp
+  - openclaw
+home: https://github.com/rohitg00/agentmemory
+sources:
+  - https://github.com/rohitg00/agentmemory
+maintainers:
+  - name: openclaw
