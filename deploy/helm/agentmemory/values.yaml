@@ -1,7 +1,7 @@
 replicaCount: 1
 
 image:
-  repository: agentmemory
+  repository: xiongwen/agentmemory
   pullPolicy: IfNotPresent
   tag: "0.9.22"
 
